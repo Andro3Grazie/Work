@@ -34,15 +34,17 @@
         <div class="container-fluid primary p-3">
             <nav class="navbar">
                 <div class="container">
-                    <span class="navbar-brand mb-0 h1" style="font-family: 'Patrick Hand', cursive;">Tiziana Fabio
-                        Moda &#149; 
-                        <span id="turno">
+                    <span class="navbar-brand mb-0 h1" style="font-family: 'Patrick Hand', cursive;"><span
+                            class="d-sm-none">T&F Moda &#149; </span><span class="d-none d-sm-inline">Tiziana Fabio
+                            Moda &#149; </span>
+                        <span id="turno" class="d-inline">
                             <!-- Apparirà la sosta di turno -->
                         </span>
                     </span>
-                                        
+    
                     <form class="d-flex">
-                        <button type="button" class="btn secondary px-md-4" disabled><i class="fas fa-user-cog"></i></button>
+                        <button type="button" class="btn secondary px-md-4" disabled><i
+                                class="fas fa-user-cog"></i></button>
                     </form>
                 </div>
             </nav>
@@ -218,7 +220,8 @@
 
         var date = new Date(primoGiorno); // some mock date
         var milliseconds = date.getTime();
-        var primoGiornoMs = milliseconds + ((Math.abs(date.getTimezoneOffset())) * 60 * 1000); // in milliseconds
+        var fusoOrario = (Math.abs(date.getTimezoneOffset())) * 60 * 1000;
+        var primoGiornoMs = milliseconds + fusoOrario; // in milliseconds
 
         // Imposta la data attuale 
         var d = new Date();
@@ -236,8 +239,9 @@
 
         // Giorno lavorativo
         else {
-//         if (true) {
-            var giorniLavorativi = Math.floor((Date.now() - primoGiornoMs) / 1000 / 60 / 60 / 24);
+        // if (true) {
+            var giorniLavorativi = Math.floor(( ( Date.now() + fusoOrario ) - primoGiornoMs) / 1000 / 60 / 60 / 24);
+
             data += ("/" + d.getFullYear()); // Aggiungi l'anno alla data
 
             var count = 0; // Contatore per i giorni non lavorativi
@@ -276,7 +280,9 @@
                 }
             }
 
+            // console.log(primaSosta, giorniLavorativi, count);
             turno = soste[(primaSosta["id"] - 1) + (giorniLavorativi - count)]["nome"];
+            // console.log(turno);
 
         } // Fine Giorno lavorativo
 
