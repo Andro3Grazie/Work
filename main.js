@@ -72,7 +72,7 @@ function apriRicerca() {
     $('#risultato').hide();
     $("#inputSoste").prop("value", '').prop("disabled", false);
     $('footer').hide();
-
+    chiudiBoxScelta();
 
     $('#listaSoste').html('');
     $('#sceltaRicerca').slideDown();
@@ -131,7 +131,18 @@ function risultatiRicerca(val) {
             `);
         }
     }
-    if (nada && val != '') { // La ricerca non ha prodotto risultati :(
+    if (val.trim().toLowerCase() == 'virgil') {
+        $('#listaSoste').append(`
+            <div class="card">
+                <div class="card-body text-center">
+                    <p class="display-2">ฅ^•ﻌ•^ฅ</p>
+                    <p class="h4 mb-0">BAVA VIRGIL</p>
+                    <p class="fs-6">Ora torna a lavoro!</p>
+                </div>
+            </div> 
+        `);
+    }
+    else if (nada && val != '') { // La ricerca non ha prodotto risultati :(
         $('#listaSoste').append(`
             <div class="card">
                 <div class="card-body text-center">
@@ -175,6 +186,7 @@ function chiudiTutto() {
     $('footer').show();
 
     chiudiBoxScelta();
+    $('#sceltaRicerca').slideUp();
 }
 // Chiudi box scelta liste (soste e nominativi)
 function chiudiBoxScelta() {
@@ -189,7 +201,7 @@ function chiudiBoxScelta() {
         $('#chiudiNominativi').hide();
         $('#sosteBox').slideDown();
     }
-    $('#sceltaRicerca').slideUp();
+    // $('#sceltaRicerca').slideUp();
 }
 // Chiudi i risultati di ricerca
 function chiudiRisultatiRicerca() {
@@ -204,6 +216,7 @@ function chiudiRisultatiRicerca() {
     $('footer').show();
 
     chiudiBoxScelta();
+    $('#sceltaRicerca').slideUp();
 }
 // Da sistemare -> mostra il nome di chi sta a quella sosta
 function dimmiChi(id, nome) { // Fanno riferimento alle informazioni della sosta dove voglio andare
