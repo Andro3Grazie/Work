@@ -23,6 +23,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
 
 
     <title>Tiziana Fabio Moda - Turni</title>
@@ -30,54 +31,90 @@
 
 <body class="background">
 
-    <div class="nav">
-        <div class="container-fluid primary p-3">
-            <nav class="navbar">
-                <div class="container">
-                    <span class="navbar-brand mb-0 h1" style="font-family: 'Patrick Hand', cursive;"><span
-                            class="d-sm-none">T&F Moda &#149; </span><span class="d-none d-sm-inline">Tiziana Fabio
-                            Moda &#149; </span>
-                        <span id="turno" class="d-inline">
-                            <!-- Apparirà la sosta di turno -->
-                        </span>
-                    </span>
-    
-                    <form class="d-flex">
-                        <button type="button" class="btn secondary px-md-4" disabled><i
-                                class="fas fa-user-cog"></i></button>
-                    </form>
+    <div style="flex: 1 0 auto;">
+        <div class="container-fluid primary-dark py-0">
+            <nav class="navbar py-0">
+                <div class="container d-flex justify-content-center">
+                    <span class="navbar-brand mb-0 h6 ml-auto" style="font-family: 'Patrick Hand', cursive; font-size: 12px;">
+                        <!-- <span class="d-sm-none">T&F Moda</span> -->
+                        <!-- <span class="d-none d-sm-inline">Tiziana Fabio Moda</span> -->
+                        <span>Tiziano & Fabio Moda</span>
+                    </span>        
                 </div>
             </nav>
         </div>
+        
+        <div class="nav">
+            <div class="container-fluid primary p-2">
+                <nav class="navbar">
+                    <div class="container">
+
+                        <span id="turno" class="d-inline h2 mb-0"  style="font-family: 'Rubik', sans-serif; font-weight: 500;">
+                            <!-- Apparirà la sosta di turno -->
+                        </span>
+
+                        <!-- <form class="d-flex">
+                            <button type="button" class="btn secondary px-md-4" disabled><i
+                                class="fas fa-user-cog"></i></button>
+                        </form> -->
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col mx-0 px-0">
+                    
+                    <form class="d-flex">
+                        <input class="form-control" type="search" placeholder="Dove vorreste andare?" aria-label="Search"
+                            onclick="apriRicerca();" id="inputSoste" autocomplete="off">
+                        <button class="btn btn-danger" id="chiudiRicerca" type="button" onclick="chiudiTutto();"
+                            style="display: none;">Chiudi</button>
+                        <button class="btn secondary-light" id="nuovaRicerca" type="button" onclick="apriRicerca();"
+                            style="display: none;">Nuova Ricerca</button>
+                    </form>
+
+                    <div id="sceltaRicerca" style="display: none;">
+                        <div class="card" id="sosteBox">
+                            <div class="card-body d-flex" onclick="mostraSoste();">
+                                Lista delle soste
+                                <span class="ms-auto" id="apriSoste">+</span>
+                                <span class="ms-auto" id="chiudiSoste" style="display: none;">-</span>
+                            </div>
+                        </div>
+                        <div class="card" id="nominativiBox">
+                            <div class="card-body d-flex" onclick="mostraNominativi();">
+                                Lista dei nominativi
+                                <span class="ms-auto" id="apriNominativi">+</span>
+                                <span class="ms-auto" id="chiudiNominativi" style="display: none;">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mx-0 px-0" id="listaSoste">
+                    <!-- Apparirà la lista delle soste -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mx-0 px-0" id="risultato">
+                    <!-- Apparirà il nome di chi è di turno alla sosta fissata al campo di input -->
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-
-        <div class="row">
-            <div class="col mx-0 px-0">
-                <form class="d-flex">
-                    <input class="form-control" type="search" placeholder="Dove vorreste andare?" aria-label="Search"
-                        onclick="apriRicerca();" id="inputSoste" autocomplete="off">
-                    <button class="btn btn-danger" id="chiudiRicerca" type="button" onclick="chiudiTutto();"
-                        style="display: none;">Chiudi</button>
-                    <button class="btn primary-light" id="nuovaRicerca" type="button" onclick="apriRicerca();"
-                        style="display: none;">Nuova Ricerca</button>
-                </form>
-            </div>
+    <footer class="primary">
+        <div class="container">
+            <p class="text-center m-4 fs-6">Realizzato con <i class="fas fa-heart"></i> da <a class="footer-link" href="https:www.alessandromieli.it">Alessandro</a></p>
         </div>
-
-        <div class="row">
-            <div class="col mx-0 px-0" id="listaSoste">
-                <!-- Apparirà la lista delle soste -->
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col mx-0 px-0" id="risultato">
-                <!-- Apparirà il nome di chi è di turno alla sosta fissata al campo di input -->
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -94,201 +131,7 @@
     <script src="feste.js"></script>
     <script src="soste.js"></script>
     <script src="nominativi.js"></script>
-    <script>
-        // Sistema di ricerca
-        function apriRicerca() {
-            $('#turno').slideUp();
-            $('.nav').slideUp('fast');
-            $('#chiudiRicerca').show();
-            $('#listaSoste').slideDown();
-            $('#nuovaRicerca').hide();
-            $('#risultato').hide();
-            $( "#inputSoste" ).prop("value", '').prop( "disabled", false );
-
-            $('#listaSoste').html('');
-            listaSosteCompleta();
-
-            // Ricerca delle soste live
-            $('#inputSoste').bind('click keyup', function () {
-                // Prendi quello che scrivi in input -> $(this).val();
-    
-                // Se il campo di ricerca non è vuoto fai vedere solo i risultati giusti
-                if ($(this).val() != '') {
-                    $("#listaSoste").html('');
-                } 
-                // Altrimenti mostra la lista completa delle soste
-                else {
-                    listaSosteCompleta();
-                }
-
-                risultatiRicerca($(this).val());
-    
-            });
-        }
-
-        // Da sistemare
-        function risultatiRicerca(val) {
-
-            var nada = true;
-
-            for (let i = 0; i < soste.length; i++) {
-                // Risultati live
-                if ( soste[i]["nome"].toUpperCase().trim().includes(val.toUpperCase().trim() ) ) {
-                    
-                    nada = false;
-
-                    $('#listaSoste').append(`
-                        <div class="card" onclick="dimmiChi(${soste[i]["id"]}, '${soste[i]["nome"]}');">
-                            <div class="card-body">
-                                ${soste[i]["nome"]}
-                            </div>
-                        </div>       
-                    `);
-                }
-            }
-            // La ricerca non ha prodotto risultati :(
-            if (nada) {
-                $('#listaSoste').append(`
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <p class="display-2">(&#62;_&#60;)</p>
-                            <p class="h5">La ricerca non ha prodotto alcun risultato</p>
-                        </div>
-                    </div> 
-                `);
-            }
-        }
-
-        // Mostra la lista completa
-        function listaSosteCompleta() {
-            for (let i = 0; i < soste.length; i++) {
-                $('#listaSoste').append(`
-                    <div class="card" onclick="dimmiChi(${soste[i]["id"]}, '${soste[i]["nome"]}');">
-                        <div class="card-body">
-                            ${soste[i]["nome"]}
-                        </div>
-                    </div>       
-                `);
-            }
-        }
-
-        function chiudiTutto() {
-            $('#turno').slideDown();
-            $('.nav').slideDown('fast');
-            $('#chiudiRicerca').hide();
-            $('#listaSoste').slideUp('slow');
-        }
-
-        function chiudiRisultatiRicerca() {
-            $('#turno').slideDown();
-            $('.nav').slideDown('fast');
-            $('#chiudiRicerca').hide();
-            $('#listaSoste').slideUp('slow');
-           
-            $('#nuovaRicerca').show();
-            $('#risultato').show();
-
-        }
-
-        function dimmiChi(id, nome) {
-
-            chiudiRisultatiRicerca();
-
-            var doveVuoiAndare = soste[id - 1];
-
-            var idNominativo = idTurno - ((soste[(primaSosta["id"] - 1) + (giorniLavorativi - count)]["id"]) - doveVuoiAndare["id"]);
-
-            $( "#inputSoste" ).prop("value", nome).prop( "disabled", true );
-            document.getElementById("risultato").innerHTML = `
-                <div class="card">
-                    <div class="card-body" >
-                       ${nominativi[idNominativo - 1]["nome"]}
-                    </div>
-                </div>
-            `;
-        }
-
-    </script>
-    <script>
-        // 1 day = 24 hours in a day × 60 minutes in an hour × 60 seconds in a minute = 86400 seconds in a day
-        // current date (in milliseconds) -> Date.now();
-        // time zone differences in minutes -> date.getTimezoneOffset();
-
-        const idTurno = 40;
-        var primaSosta = soste[33 - 1];
-        var primoGiorno = "04/01/2021"; // Formato -> mm/gg/aaaa
-
-        var date = new Date(primoGiorno); // some mock date
-        var milliseconds = date.getTime();
-        var fusoOrario = (Math.abs(date.getTimezoneOffset())) * 60 * 1000;
-        var primoGiornoMs = milliseconds + fusoOrario; // in milliseconds
-
-        // Imposta la data attuale 
-        var d = new Date();
-
-        // Aggiunge uno "0" davanti al giorno e al mese, qualunque sia il loro valore prende le ultime due cifre
-        // (es.1: "0" + (giorno =) 10 -> 010 [slice(-2)] -> 10, es.2: "0" + (giorno =) 3 -> 03 [slice(-2)] -> 03)
-        var data = (("0" + d.getDate()).slice(-2)) + "/" + ("0" + (d.getMonth() + 1)).slice(-2); // Senza anno
-
-
-        var turno;
-
-        // Girono Festivo
-        if (d.getDay() == 0 || giorniFestiviFissi.includes(data) || giorniFestiviVariabili.includes(data + "/" + d.getFullYear()))
-            turno = "Oggi siete di turno sotto le coperte";
-
-        // Giorno lavorativo
-        else {
-        // if (true) {
-            var giorniLavorativi = Math.floor(( ( Date.now() + fusoOrario ) - primoGiornoMs) / 1000 / 60 / 60 / 24);
-
-            data += ("/" + d.getFullYear()); // Aggiungi l'anno alla data
-
-            var count = 0; // Contatore per i giorni non lavorativi
-
-            for (let i = 0; i < domeniche.length; i++) {
-
-                // Il mese è minore/uguale di quello attuale (dello stesso anno)
-                if (domeniche[i].substring(3, 5) <= data.substring(3, 5) && domeniche[i].substring(6) == data.substring(6)) {
-
-                    // il giorno è minore/uguale di quello attuale
-                    if (domeniche[i].substring(0, 2) <= data.substring(0, 2)) {
-
-                        // Aggiungi una domenica
-                        count += 1;
-                    }
-                }
-            }
-
-            // Conta le Feste
-            for (let i = 0; i < (giorniFestiviFissi.length + giorniFestiviVariabili.length); i++) {
-
-                // Il mese è minore/uguale di quello attuale (dello stesso anno)
-                if (feste[i].substring(3, 5) <= data.substring(3, 5) && feste[i].substring(6) == data.substring(6)) {
-
-                    // il giorno è minore/uguale di quello attuale
-                    if (feste[i].substring(0, 2) <= data.substring(0, 2)) {
-
-                        // Controlla solo se una delle festività è domenica
-                        if (!domeniche.includes(feste[i])) {
-
-                            // Aggiungi un giorno di festa
-                            count += 1;
-                        }
-
-                    }
-                }
-            }
-
-            // console.log(primaSosta, giorniLavorativi, count);
-            turno = soste[(primaSosta["id"] - 1) + (giorniLavorativi - count)]["nome"];
-            // console.log(turno);
-
-        } // Fine Giorno lavorativo
-
-        document.getElementById("turno").innerHTML = turno.charAt(0).toUpperCase() + turno.toLowerCase().slice(1);;
-
-    </script>
+    <script src="main.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

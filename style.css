@@ -42,3 +42,37 @@
 .btn:hover {
     color: #fff;
 }
+.form-control, #chiudiRicerca, #nuovaRicerca {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #5172d5;
+    outline: 0;
+    box-shadow: none;
+}
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    flex-shrink: 0;
+}
+.footer-link {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    padding-bottom: .05em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    transition: border-color .15s ease-out, color .15s ease-out;
+}
+.footer-link:hover {
+    color: rgba(255, 255, 255, .6);
+    border-color: rgba(255, 255, 255, .15);
+}
