@@ -110,9 +110,16 @@ function risultatiRicerca(val) {
             $('#listaSoste').append(`
                 <div class="card" onclick="dimmiChi(${soste[i]["id"]}, '${soste[i]["nome"]}');">
                     <div class="card-body">
-                        ${soste[i]["nome"]}
+                        <div class="row">                    
+                            <div class="col-2">
+                                ${soste[i]["id"]}
+                            </div>
+                            <div class="col-auto">
+                                ${soste[i]["nome"]}
+                            </div>
+                        </div>
                     </div>
-                </div>       
+                </div>      
             `);
         }
     }
@@ -124,8 +131,15 @@ function risultatiRicerca(val) {
 
             $('#listaSoste').append(`
                 <div class="card" onclick="dimmiDove(${nominativi[i]["id"]}, '${nominativi[i]["nome"]}');">
-                    <div class="card-body">
-                        ${nominativi[i]["nome"]}
+                    <div class="card-body">\
+                        <div class="row">
+                            <div class="col-2">
+                                ${nominativi[i]["id"]}
+                            </div>
+                            <div class="col-auto">
+                                ${nominativi[i]["nome"]}
+                            </div>
+                        </div>
                     </div>
                 </div>       
             `);
@@ -159,8 +173,16 @@ function listaSosteCompleta() {
         $('#listaSoste').append(`
             <div class="card" onclick="dimmiChi(${soste[i]["id"]}, '${soste[i]["nome"]}');">
                 <div class="card-body">
-                    ${soste[i]["nome"]}
+                    <div class="row">
+                        <div class="col-2">
+                            ${soste[i]["id"]}
+                        </div>
+                        <div class="col-auto">
+                            ${soste[i]["nome"]}
+                        </div>
+                    </div>
                 </div>
+            </div>
             </div>       
         `);
     }
@@ -171,7 +193,14 @@ function listaNominativiCompleta() {
         $('#listaSoste').append(`
             <div class="card" onclick="dimmiDove(${nominativi[i]["id"]}, '${nominativi[i]["nome"]}');">
                 <div class="card-body">
-                    ${nominativi[i]["nome"]}
+                    <div class="row">
+                        <div class="col-2">
+                            ${nominativi[i]["id"]}
+                        </div>
+                        <div class="col-auto">
+                            ${nominativi[i]["nome"]}
+                        </div>
+                    </div>
                 </div>
             </div>       
         `);
