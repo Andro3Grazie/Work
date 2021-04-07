@@ -1,3 +1,8 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
 /* Primary color */
 .primary {
     color: #ffffff;
@@ -65,4 +70,17 @@
 .footer-link:hover {
     color: rgba(255, 255, 255, .6);
     border-color: rgba(255, 255, 255, .15);
+}
+.link {
+    color: #000000;
+    border-bottom-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    padding-bottom: .05em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    transition: border-color .15s ease-out, color .15s ease-out;
+}
+.link:hover {
+    color: rgba(0, 0, 0, .6);
+    border-color: rgba(0, 0, 0, .15);
 }
