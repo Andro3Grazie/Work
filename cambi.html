@@ -46,8 +46,8 @@
             <nav class="navbar">
                 <div class="container">
 
-                    <span id="turno" class="d-inline h2 mb-0"  style="font-family: 'Rubik', sans-serif; font-weight: 500;">
-                        <!-- Apparirà la sosta di turno -->
+                    <span id="" class="d-inline h2 mb-0"  style="font-family: 'Rubik', sans-serif; font-weight: 500;">
+                        Cambi
                     </span>
 
                     <!-- <form class="d-flex">
@@ -63,54 +63,12 @@
     <div class="container">
 
         <div class="row">
-            <div class="col mx-0 px-0">
-                <!-- Search bar -->
-                <form class="d-flex">
-                    <input class="form-control" type="search" placeholder="Cerca..." aria-label="Search"
-                        onclick="apriRicerca();" id="inputSoste" autocomplete="off">
-                    <button class="btn btn-danger" id="chiudiRicerca" type="button" onclick="chiudiTutto();"
-                        style="display: none;">Chiudi</button>
-                    <button class="btn secondary-light" id="nuovaRicerca" type="button" onclick="apriRicerca();"
-                        style="display: none;">Nuova Ricerca</button>
-                </form>
-                <!-- Liste -->
-                <div id="sceltaRicerca" style="display: none;">
-                    <!-- Soste -->
-                    <div class="card" id="sosteBox">
-                        <div class="card-body d-flex" onclick="mostraSoste();">
-                            <strong>Lista delle soste</strong>
-                            <!-- Simbolo del + -->
-                            <span class="ms-auto" id="apriSoste"><i class="fas fa-plus fa-sm"></i></span>
-                            <!-- Simbolo del - -->
-                            <span class="ms-auto" id="chiudiSoste" style="display: none;"><i class="fas fa-minus fa-sm"></i></span>
-                        </div>
-                    </div>
-                    <div class="card" id="nominativiBox">
-                    <!-- Nominativi -->
-                        <div class="card-body d-flex" onclick="mostraNominativi();">
-                            <strong>Lista dei nominativi</strong>
-                            <!-- Simbolo del + -->
-                            <span class="ms-auto" id="apriNominativi"><i class="fas fa-plus fa-sm"></i></span>
-                            <!-- Simbolo del - -->
-                            <span class="ms-auto" id="chiudiNominativi" style="display: none;"><i class="fas fa-minus fa-sm"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col">DOVE SARAI</div>
+            <div class="col"></div>
         </div>
-
-        <div class="row">
-            <div class="col mx-0 px-0" id="listaSoste">
-                <!-- Apparirà la lista delle soste -->
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col mx-0 px-0" id="risultato">
-                <!-- Apparirà il nome di chi è di turno alla sosta fissata al campo di input -->
-            </div>
-        </div>
+        
     </div>
+
     <!-- Footer -->
     <footer class="footer mt-auto py-3 primary">
         <div class="container">
