@@ -1,0 +1,17 @@
+Fix v1.10 { [DONE]
+    - Adding 404 page
+    - Adding author tag on all pages
+    - Moving fonts links in css page instead of repeating them in each html pages
+}
+Fix v1.10.1 { [DONE]
+    - Using absolute links 
+}
+Fix v1.10.2 { [DONE]
+    - Fixing 404 page
+}
+Fix v1.11 { [IN_PROGRESS]
+    - Changing tab name for all pages
+    - Removing 'x' icon from input field (type="search" -> type="text") ? 
+    - Adding Soste carousel 
+    - Bug Fix controllaTurno() function
+}

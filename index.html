@@ -20,35 +20,75 @@
 
     <!-- My style -->
     <link rel="stylesheet" href="style/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon/favicon.png"/>
 
-    <title>Tiziana Fabio Moda - Turni</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon/favicon.png" />
+
+    <title>Turni - T&F Moda</title>
 </head>
 
 <body class="background d-flex flex-column h-100 vsc-initialized">
 
+    <!-- Modal ricerca -->
+    <div class="modal" tabindex="-1" id="exampleModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Imposta la sosta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form class="d-flex">
+                                <input class="form-control" id="inputImpostaSoste" type="text" placeholder="Cerca..." aria-label="Search" autocomplete="off">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="impostaListaSosta">
+                            <!-- Apparirà la lista delle soste -->
+                        </div>
+                    </div>       
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn secondary btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn primary btn-primary" onclick="turnoDiOggi();" data-bs-dismiss="modal">Imposta la data di oggi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid primary-dark py-0">
         <nav class="navbar py-0">
             <div class="container d-flex justify-content-center">
-                <span class="navbar-brand mb-0 h6 ml-auto" style="font-family: 'Patrick Hand', cursive; font-size: 12px;">
+                <span class="navbar-brand mb-0 h6 ml-auto"
+                    style="font-family: 'Patrick Hand', cursive; font-size: 12px;">
                     <!-- <span class="d-sm-none">T&F Moda</span> -->
                     <!-- <span class="d-none d-sm-inline">Tiziana Fabio Moda</span> -->
                     <span>Tiziano & Fabio Moda</span>
-                </span>        
+                </span>
             </div>
         </nav>
     </div>
-    
-    <div class="nav">
-        <div class="container-fluid primary p-2">
-            <nav class="navbar">
-                <div class="container">
 
-                    <span id="turno" class="d-inline h2 mb-0"  style="font-family: 'Rubik', sans-serif; font-weight: 500;">
-                        <!-- Apparirà la sosta di turno -->
-                    </span>
+    <div class="nav">
+        <div class="container-fluid primary p-4 carousel slide" data-bs-interval="false" data-bs-ride="carousel" id="sosteCarousel">
+            <nav class="navbar">
+                <div class="container text-center">
+
+                        <div class="carousel-inner" id="turno" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="applicaSosta();"> <!-- onclick="impostaSosta();" -->
+                                <!-- Apparirà la sosta di turno -->
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#sosteCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#sosteCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
 
                     <!-- <form class="d-flex">
                         <button type="button" class="btn secondary px-md-4" disabled><i
@@ -65,8 +105,8 @@
         <div class="row">
             <div class="col mx-0 px-0">
                 <!-- Search bar -->
-                <form class="d-flex">
-                    <input class="form-control" type="search" placeholder="Cerca..." aria-label="Search"
+                <form class="d-flex" id="ricercaGenerale">
+                    <input class="form-control" type="text" placeholder="Cerca..." aria-label="Search"
                         onclick="apriRicerca();" id="inputSoste" autocomplete="off">
                     <button class="btn btn-danger" id="chiudiRicerca" type="button" onclick="chiudiTutto();"
                         style="display: none;">Chiudi</button>
@@ -82,17 +122,19 @@
                             <!-- Simbolo del + -->
                             <span class="ms-auto" id="apriSoste"><i class="fas fa-plus fa-sm"></i></span>
                             <!-- Simbolo del - -->
-                            <span class="ms-auto" id="chiudiSoste" style="display: none;"><i class="fas fa-minus fa-sm"></i></span>
+                            <span class="ms-auto" id="chiudiSoste" style="display: none;"><i
+                                    class="fas fa-minus fa-sm"></i></span>
                         </div>
                     </div>
                     <div class="card" id="nominativiBox">
-                    <!-- Nominativi -->
+                        <!-- Nominativi -->
                         <div class="card-body d-flex" onclick="mostraNominativi();">
                             <strong>Lista dei nominativi</strong>
                             <!-- Simbolo del + -->
                             <span class="ms-auto" id="apriNominativi"><i class="fas fa-plus fa-sm"></i></span>
                             <!-- Simbolo del - -->
-                            <span class="ms-auto" id="chiudiNominativi" style="display: none;"><i class="fas fa-minus fa-sm"></i></span>
+                            <span class="ms-auto" id="chiudiNominativi" style="display: none;"><i
+                                    class="fas fa-minus fa-sm"></i></span>
                         </div>
                     </div>
                 </div>
@@ -115,7 +157,7 @@
     <footer class="footer mt-auto py-3 primary">
         <div class="container">
             <p class="text-center fs-6">
-                Realizzato con <i class="fas fa-heart"></i> da 
+                Realizzato con <i class="fas fa-heart"></i> da
                 <a class="footer-link" href="https://www.alessandromieli.it">Alessandro</a>
             </p>
         </div>
@@ -136,6 +178,7 @@
     <script src="scripts/feste.js"></script>
     <script src="scripts/soste.js"></script>
     <script src="scripts/nominativi.js"></script>
+    <script src="scripts/funzioni.js"></script>
     <script src="scripts/main.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
