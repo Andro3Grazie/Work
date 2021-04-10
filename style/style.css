@@ -47,11 +47,11 @@
 .btn:hover {
     color: #fff;
 }
-.form-control, #chiudiRicerca, #nuovaRicerca {
+#ricercaGenerale .form-control, #ricercaGenerale #chiudiRicerca, #nuovaRicerca {
     border-top-left-radius: 0rem;
     border-top-right-radius: 0rem;
 }
-.form-control:focus {
+#ricercaGenerale .form-control:focus {
     color: #212529;
     background-color: #fff;
     border-color: #5172d5;
