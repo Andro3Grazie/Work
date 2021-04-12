@@ -1,54 +1,20 @@
-// 1 day = 24 hours in a day × 60 minutes in an hour × 60 seconds in a minute = 86400 seconds in a day
-// current date (in milliseconds) -> Date.now();
-// time zone differences in minutes -> date.getTimezoneOffset();
-
+// COSTANTI -> Far si che si prendano in input (magari da un file di configurazione) per renderlo scalabile
 const idTurno = 40;
-var primaSosta = soste[33 - 1];
-var primoGiorno = "04/01/2021"; // Formato -> mm/gg/aaaa
+const nTurni = soste.length;
+const nNominativi = nominativi.length;
+const primaSosta = soste[33 - 1];
+const primoGiorno = "04/01/2021"; // Formato -> mm/gg/aaaa (Tanto si dovrà prendere in input)
 
+// VARIABILI
 var turno = []; // Dove sono di turno oggi
+var dataOggi = new Date();
+var ricercaFatta = '';
 
-var date = new Date(primoGiorno); // Imposta primoGiorno come data
-var milliseconds = date.getTime(); // Trasformala in millisecondi
-var fusoOrario = (Math.abs(date.getTimezoneOffset())) * 60 * 1000; // Calcola il fuso orario
-var primoGiornoMs = milliseconds + fusoOrario; // Aggiungi il fuso orario alla data in millisecondi
+// Runna il sito :)
+main();
 
-// Imposta la data attuale 
-var d = new Date();
-// Aggiunge uno "0" davanti al giorno e al mese, qualunque sia il loro valore prende le ultime due cifre
-// (es.1: "0" + (giorno =) 10 -> 010 [slice(-2)] -> 10, es.2: "0" + (giorno =) 3 -> 03 [slice(-2)] -> 03)
-var data = (("0" + d.getDate()).slice(-2)) + "/" + ("0" + (d.getMonth() + 1)).slice(-2); // Senza anno
-// console.log(d, d.getDay());
-// Se è un giorno festivo non calcolare nulla 
-if (d.getDay() == 0 || giorniFestiviFissi.includes(data) || giorniFestiviVariabili.includes(data + "/" + d.getFullYear()))
-    $('#turno').html(titleCase("Oggi si sta sotto le coperte"));
-else {
-    controllaTurno(); // Mi da il nome e il numero della sosta dove sono di turno oggi
-    stampaCalendario();
-    // titleCase(turno["nome"])); -> sosta di turno
-}
-function stampaCalendario() {
-    for (let i = 1; i <= soste.length; i++) {
-        if (i == turno["id"]) {
-            $('#turno').append(`
-                <div class="carousel-item active" id="sostaNumero${i}">
-                    <span class="d-inline h2 mb-0" style="font-family: 'Rubik', sans-serif; font-weight: 500;">
-                        ${ titleCase( soste[i - 1]["nome"] ) }
-                    </span>
-                </div>
-            `);
-        }
-        else {
-            $('#turno').append(`
-                <div class="carousel-item" id="sostaNumero${i}">
-                    <span class="d-inline h2 mb-0" style="font-family: 'Rubik', sans-serif; font-weight: 500;">
-                        ${ titleCase( soste[i - 1]["nome"] ) }
-                    </span>
-                 </div>
-            `);
-        }
-    }
-}
+
+
 // function impostaSosta() {
 //     $('#turno').html(`
 //         <div class="carousel-item active">
@@ -59,48 +25,12 @@ function stampaCalendario() {
 //     `);
 //     applicaSosta();
 // }
-// Mostra il box delle soste
-function mostraSoste() {
-    if ($('#apriSoste').css('display') != 'none') {
-        $('#apriSoste').hide();
-        $('#chiudiSoste').show();
-        $('#nominativiBox').slideUp();
-        listaSosteCompleta();
-        $('footer').hide();
-    }
-    else {
-        $('#listaSoste').html('');
-        $('#apriSoste').show();
-        $('#chiudiSoste').hide();
-        $('#nominativiBox').slideDown();
-        $('footer').show();
-    }
-}
-// Mostra il box dei nominativi
-function mostraNominativi() {
-    if ($('#apriNominativi').css('display') != 'none') {
-        $('#apriNominativi').hide();
-        $('#chiudiNominativi').show();
-        $('#sosteBox').slideUp();
-        listaNominativiCompleta();
-        $('footer').hide();
 
-    }
-    else {
-        $('#listaSoste').html('');
-        $('#apriNominativi').show();
-        $('#chiudiNominativi').hide();
-        $('#sosteBox').slideDown();
-        $('footer').show();
-    }
-}
-function turnoDiOggi() {
-    controllaTurno();
-    stampaCalendario();
-    impostaApplicaSosta(turno["id"], turno["nome"]);
-    // console.log('id: ', turno["id"], '| nome: ', turno["nome"]);
-}
 function applicaSosta() {
+    
+    var modal = new bootstrap.Modal(document.getElementById('impostaSosteModal'));
+    modal.toggle();
+    
     $('#inputImpostaSoste').val('').focus();
     $('#impostaListaSosta').html('');
 
@@ -158,13 +88,12 @@ function impostaApplicaSosta(id, nome) {
     // console.log(id + " " + nome, " | ", soste[id - 1]["id"] + " " + soste[id - 1]["nome"] );
     turno["id"] = soste[id - 1]["id"];
     turno["nome"] = soste[id - 1]["nome"];
-    $('#turno').html('');
     stampaCalendario();
     
     $('#nuovaRicerca').hide();
     $('#risultato').hide();
     $("#inputSoste").prop("value", '').prop("disabled", false);
-    $('#exampleModal').modal('hide');
+    $('#impostaSosteModal').modal('hide');
 }
 // Apri il campo di ricerca
 function apriRicerca() {
@@ -174,12 +103,14 @@ function apriRicerca() {
     $('#listaSoste').slideDown();
     $('#nuovaRicerca').hide();
     $('#risultato').hide();
-    $("#inputSoste").prop("value", '').prop("disabled", false);
+    $("#inputSoste").prop("value", ricercaFatta).prop("disabled", false).focus();
     $('footer').hide();
     chiudiBoxScelta();
 
-    $('#listaSoste').html('');
-    $('#sceltaRicerca').slideDown();
+    if (ricercaFatta == '') {
+        $('#listaSoste').html('');
+        $('#sceltaRicerca').slideDown();
+    }
 
     // Prendere gli input da tastiera per la ricerca live
     $('#inputSoste').bind('click keyup', function () {
@@ -197,8 +128,10 @@ function apriRicerca() {
         }
 
         risultatiRicerca($(this).val());
+        ricercaFatta = $(this).val();
 
     });
+    
 
 }
 // Sistema di ricerca
@@ -275,45 +208,7 @@ function risultatiRicerca(val) {
         // da fare )
     }
 }
-// Mostra la lista delle soste completa
-function listaSosteCompleta() {
-    for (let i = 0; i < soste.length; i++) {
-        $('#listaSoste').append(`
-            <div class="card" onclick="dimmiChi(${soste[i]["id"]}, '${soste[i]["nome"]}');">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-2">
-                            ${soste[i]["id"]}
-                        </div>
-                        <div class="col-auto">
-                            ${soste[i]["nome"]}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>       
-        `);
-    }
-}
-// Mostra la lista dei nomi completa
-function listaNominativiCompleta() {
-    for (let i = 0; i < soste.length; i++) {
-        $('#listaSoste').append(`
-            <div class="card" onclick="dimmiDove(${nominativi[i]["id"]}, '${nominativi[i]["nome"]}');">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-2">
-                            ${nominativi[i]["id"]}
-                        </div>
-                        <div class="col-auto">
-                            ${nominativi[i]["nome"]}
-                        </div>
-                    </div>
-                </div>
-            </div>       
-        `);
-    }
-}
+
 // Chiudi (Pulsante)
 function chiudiTutto() {
     $('#turno').slideDown();
@@ -324,6 +219,7 @@ function chiudiTutto() {
 
     chiudiBoxScelta();
     $('#sceltaRicerca').slideUp();
+    $("#inputSoste").prop("value", '');
 }
 // Chiudi box scelta liste (soste e nominativi)
 function chiudiBoxScelta() {
@@ -338,7 +234,6 @@ function chiudiBoxScelta() {
         $('#chiudiNominativi').hide();
         $('#sosteBox').slideDown();
     }
-    // $('#sceltaRicerca').slideUp();
 }
 // Chiudi i risultati di ricerca
 function chiudiRisultatiRicerca() {
@@ -355,33 +250,7 @@ function chiudiRisultatiRicerca() {
     chiudiBoxScelta();
     $('#sceltaRicerca').slideUp();
 }
-// Quando il carousello si muove
-var carouselTurno = document.getElementById('sosteCarousel')
-carouselTurno.addEventListener('slide.bs.carousel', function (val) {
-    // Con il carousel si sposta anche il tunro lo cambia (se il carousel va a destra aggiungi 1 | se va a sinistra sottrai uno )
-    if (val.direction == 'right') { // Se va a destra
-        // e se è minore di 95, altrimenti ricomincia da 0
-        if (turno["id"] < 95) {        
-            turno["id"] = soste[(turno["id"] - 1) + 1]["id"];
-            turno["nome"] = soste[turno["id"] - 1]["nome"];
-        }
-        else {
-            turno["id"] = soste[0]["id"];
-            turno["nome"] = soste[0]["nome"];
-        }
-    }
-    else { // Se va a sinistra
-        // e finché è minore di 1, altrimenti ricomincia da 95
-        if (turno["id"] > 1) {
-            turno["id"] = soste[(turno["id"] - 1) - 1]["id"];
-            turno["nome"] = soste[turno["id"] - 1]["nome"];
-        } else {
-            turno["id"] = soste[95 - 1]["id"];
-            turno["nome"] = soste[95 - 1]["nome"];
-        }
-    }
-    // console.log(turno, soste[turno["id"] - 1]["id"]);
-});
+
 // Mostra il nome di chi sta a quella sosta
 function dimmiChi(id, nome) { // Fanno riferimento alle informazioni della sosta dove voglio andare
 
@@ -436,52 +305,3 @@ function titleCase(str) {
     // Directly return the joined string
     return splitStr.join(' '); 
 }
-// stampa dove sono di turno
-// function controllaTurno() {
-
-//     turno = [];
-    
-//     var giorniLavorativi = Math.floor(((Date.now() + fusoOrario) - primoGiornoMs) / 1000 / 60 / 60 / 24);
-
-//     data += ("/" + d.getFullYear()); // Aggiungi l'anno alla data
-
-//     var count = 0; // Contatore per i giorni non lavorativi
-
-//     for (let i = 0; i < domeniche.length; i++) {
-
-//         // Il mese è minore/uguale di quello attuale (dello stesso anno)
-//         if (domeniche[i].substring(3, 5) <= data.substring(3, 5) && domeniche[i].substring(6) == data.substring(6)) {
-
-//             // il giorno è minore/uguale di quello attuale
-//             if (domeniche[i].substring(0, 2) <= data.substring(0, 2)) {
-
-//                 // Aggiungi una domenica
-//                 count += 1;
-//             }
-//         }
-//     }
-
-//     // Conta le Feste
-//     for (let i = 0; i < (giorniFestiviFissi.length + giorniFestiviVariabili.length); i++) {
-
-//         // Il mese è minore/uguale di quello attuale (dello stesso anno)
-//         if (feste[i].substring(3, 5) <= data.substring(3, 5) && feste[i].substring(6) == data.substring(6)) {
-
-//             // il giorno è minore/uguale di quello attuale
-//             if (feste[i].substring(0, 2) <= data.substring(0, 2)) {
-
-//                 // Controlla solo se una delle festività è domenica
-//                 if (!domeniche.includes(feste[i])) {
-
-//                     // Aggiungi un giorno di festa
-//                     count += 1;
-//                 }
-
-//             }
-//         }
-//     }
-
-//     turno["nome"] = soste[(primaSosta["id"] - 1) + (giorniLavorativi - count)]["nome"];
-//     turno["id"] = soste[(primaSosta["id"] - 1) + (giorniLavorativi - count)]["id"];
-// } // Fine calcolo del turno
-
