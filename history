@@ -9,9 +9,27 @@ Fix v1.10.1 { [DONE]
 Fix v1.10.2 { [DONE]
     - Fixing 404 page
 }
-Fix v1.11 { [IN_PROGRESS]
+Fix v1.11 { [DONE]
     - Changing tab name for all pages
     - Removing 'x' icon from input field (type="search" -> type="text") ? 
     - Adding Soste carousel 
     - Bug Fix controllaTurno() function
+}
+Fix v1.12 { [DONE]
+    - disabling touch screen on mobile (temporary, to understand how to fix the reverse scroll gesture) [DONE]
+    - Fixing what appear on sunday/holiday (changing the color of the 'soste' navbar) [DONE]
+    - Deleted cambi's page [DONE]
+    - Do not delete search bar text and relative search result [DONE]
+    - Tidy up code (Javascript pages) pt.1 [DONE]
+    - Focusing input field on 'Nuova Ricerca' [DONE]
+    - Clicking on 'Cancella' button clear input if there's no previous search result is selected [DONE]
+}
+Fix v1.12.1 { [TO_DO]
+    - Fixing on leave day turno's view
+    - Save the previuos search result and add clear button under it (maybe rediseng it -> | clear btn | new search btn |)
+    - Fix 'turno navbar' (re)load on closing search box
+    - Tidy up code (Javascript pages) pt.1 [IN_PROGRESS]
+}
+Fix v1.13 { [TO_DO]
+    - Fix touch screen gesture on mobile (it's reversed and it should not be)
 }

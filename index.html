@@ -30,7 +30,7 @@
 <body class="background d-flex flex-column h-100 vsc-initialized">
 
     <!-- Modal ricerca -->
-    <div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal" tabindex="-1" id="impostaSosteModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn secondary btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn primary btn-primary" onclick="turnoDiOggi();" data-bs-dismiss="modal">Imposta la data di oggi</button>
+                    <button type="button" class="btn primary btn-primary" onclick="controllaTurno(); impostaApplicaSosta(turno['id'], turno['nome']);" data-bs-dismiss="modal">Imposta il turno di oggi</button>
                 </div>
             </div>
         </div>
@@ -73,19 +73,19 @@
     </div>
 
     <div class="nav">
-        <div class="container-fluid primary p-4 carousel slide" data-bs-interval="false" data-bs-ride="carousel" id="sosteCarousel">
+        <div class="container-fluid primary p-4 carousel slide" data-bs-interval="false" data-bs-touch="false" data-bs-ride="carousel" id="carouselTurno">
             <nav class="navbar">
                 <div class="container text-center">
 
-                        <div class="carousel-inner" id="turno" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="applicaSosta();"> <!-- onclick="impostaSosta();" -->
+                        <div class="carousel-inner" id="turno" onclick="applicaSosta();">
                                 <!-- Apparirà la sosta di turno -->
                         </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#sosteCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTurno" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#sosteCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselTurno" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
