@@ -30,8 +30,8 @@
 <body class="background d-flex flex-column h-100 vsc-initialized">
 
     <!-- Modal ricerca -->
-    <div class="modal" tabindex="-1" id="impostaSosteModal">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true" tabindex="-1" id="impostaSosteModal">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Imposta la sosta</h5>
@@ -110,8 +110,6 @@
                         onclick="apriRicerca();" id="inputSoste" autocomplete="off">
                     <button class="btn btn-danger" id="chiudiRicerca" type="button" onclick="chiudiTutto();"
                         style="display: none;">Chiudi</button>
-                    <button class="btn secondary-light" id="nuovaRicerca" type="button" onclick="apriRicerca();"
-                        style="display: none;">Nuova Ricerca</button>
                 </form>
                 <!-- Liste -->
                 <div id="sceltaRicerca" style="display: none;">
@@ -152,6 +150,17 @@
                 <!-- Apparirà il nome di chi è di turno alla sosta fissata al campo di input -->
             </div>
         </div>
+
+        <div class="row mt-3">
+            <div class="d-grid gap-2 col mx-auto">
+                <button class="btn btn-danger" id="pulisciRicerca" type="button" onclick="svuotaRicerca();" style="display: none;">Svuota Ricerca</button>
+            </div>
+            <div class="d-grid gap-2 col mx-auto">
+                <button class="btn primary-light" id="nuovaRicerca" type="button" onclick="apriRicerca();" style="display: none;">Nuova Ricerca</button>
+            </div>
+        </div>
+
+
     </div>
     <!-- Footer -->
     <footer class="footer mt-auto py-3 primary">
@@ -174,7 +183,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- My scripts -->
-    <script src="scripts/domeniche.js"></script>
     <script src="scripts/feste.js"></script>
     <script src="scripts/soste.js"></script>
     <script src="scripts/nominativi.js"></script>

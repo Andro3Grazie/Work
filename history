@@ -24,12 +24,21 @@ Fix v1.12 { [DONE]
     - Focusing input field on 'Nuova Ricerca' [DONE]
     - Clicking on 'Cancella' button clear input if there's no previous search result is selected [DONE]
 }
-Fix v1.12.1 { [TO_DO]
-    - Fixing on leave day turno's view
-    - Save the previuos search result and add clear button under it (maybe rediseng it -> | clear btn | new search btn |)
-    - Fix 'turno navbar' (re)load on closing search box
-    - Tidy up code (Javascript pages) pt.1 [IN_PROGRESS]
+Fix v1.12.1 { [IN_PROGRESS]
+    - Save the previuos search result and add clear button under it (maybe rediseng it -> | clear btn | new search btn |) [DONE]
+    - Tidy up code (Javascript pages) pt.2 [DONE]
+    - Removing domeniche's page [DONE]
+    - Fixing search system [DONE] -> not the best way but it work (the search start from the last word if it can not find anything)
+        - Adding search by number [DONE]
 }
 Fix v1.13 { [TO_DO]
     - Fix touch screen gesture on mobile (it's reversed and it should not be)
+    - Fix 'turno navbar' (re)load on closing search box
+    - Fixing on leave day turno's view
 }
+
+- Save the previuos search result and add clear button under it (maybe rediseng it -> | clear btn | new search btn |)
+- Tidy up code (Javascript pages) pt.2
+- Removing domeniche's page
+- Fixing search system -> not the best way but it work (the search start from the last word if it can not find anything)
+    - Adding search by number
