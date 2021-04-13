@@ -58,6 +58,25 @@
             </div>
         </div>
     </div>
+  
+    <!-- Modal per informare del giorno impostato -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel"><i class="fas fa-info-circle fa-lg"></i></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-0 fs-4">
+                    Vuoi impostare l'ultima sosta a cui sei stato?
+                </div>
+                <div class="modal-footer pt-0" style="border-top: none">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn primary" data-bs-dismiss="modal" onclick="mostraTurno();">Va bene</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid primary-dark py-0">
         <nav class="navbar py-0">
@@ -73,9 +92,13 @@
     </div>
 
     <div class="nav">
-        <div class="container-fluid primary p-4 carousel slide" data-bs-interval="false" data-bs-touch="false" data-bs-ride="carousel" id="carouselTurno">
+        <div class="container-fluid primary p-4 carousel slide" data-bs-interval="false" data-bs-ride="carousel" id="carouselTurno">
             <nav class="navbar">
-                <div class="container text-center">
+                <div class="container text-center d-flex justify-content-center">
+
+                        <div id="ferie" onclick="var myModal = new bootstrap.Modal(document.getElementById('infoModal')); myModal.show();">
+                            <!-- Apparirà `oggi si sta a casa` -->
+                        </div>
 
                         <div class="carousel-inner" id="turno" onclick="applicaSosta();">
                                 <!-- Apparirà la sosta di turno -->
@@ -183,7 +206,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- My scripts -->
-    <script src="scripts/feste.js"></script>
     <script src="scripts/soste.js"></script>
     <script src="scripts/nominativi.js"></script>
     <script src="scripts/funzioni.js"></script>
