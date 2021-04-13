@@ -47,7 +47,7 @@
 .btn:hover {
     color: #fff;
 }
-#ricercaGenerale .form-control, #ricercaGenerale #chiudiRicerca, #nuovaRicerca {
+#ricercaGenerale .form-control, #ricercaGenerale #chiudiRicerca {
     border-top-left-radius: 0rem;
     border-top-right-radius: 0rem;
 }
