@@ -1,17 +1,36 @@
 // Funzione principale 
 function main() {
+    getEaster(dataOggi.getFullYear()); // Calcola Pasqua e Pasquetta
+    feste.splice(2, 0, pasqua, pasquetta); // Aggiungile alle feste
+
     controllaTurno();
     stampaCalendario();
     controlloCarosello();
 
     // se è un giorno festivo calcola lo stesso ma stampa come `active` del carousel che si sta sotto le coperte [DA_RIFARE]
     if ( dataOggi.getDay() == 0 || (feste.includes( ("0" + dataOggi.getDate()).slice(-2) + "/" + ("0" + (dataOggi.getMonth() + 1)).slice(-2) ) )) { // Se non è domenica   
-        
-        // console.log('Domenica o festivo');
-        // Oggi non si lavora, trovare un modo per farlo capire   
-        $('#sosteCarousel').addClass('secondary'); // Non il massimo ma il più carino 
-        $('#sosteCarousel').css('opacity', '.75');
+
+        $('#turno').hide();
+        $('#ferie').html(`
+            <span class="d-inline h2 mb-0 text-center" style="font-family: 'Rubik', sans-serif; font-weight: 500;">
+                Oggi tutti a casa
+            </span>
+        `);
+
+        $('.carousel-control-prev').hide();
+        $('.carousel-control-next').hide();
+
+        $('#carouselTurno').css('opacity', '.75');
     }
+}
+
+// Mostra il turno in un giorno festivo
+function mostraTurno() {
+    $('#ferie').html('').hide();
+    $('#turno').show();
+    $('#carouselTurno').css('opacity', '1');
+    $('.carousel-control-prev').show();
+    $('.carousel-control-next').show();
 }
 
 // Calcola dove sono di turno oggi
@@ -24,8 +43,6 @@ function controllaTurno() {
     var dataPrimoGiorno = new Date(primoGiorno); // Imposta primoGiorno come data
     var dataOggi = new Date();
     var giorniLavorativi = 0;
-
-    // dataOggi.setDate(dataOggi.getDate() - 2); // Imposta il giorno a domenica
     
     while ( (dataOggi.getDate() >= dataPrimoGiorno.getDate() && (dataOggi.getMonth() + 1) == (dataPrimoGiorno.getMonth() + 1)) ) {
       
@@ -147,6 +164,7 @@ function listaNominativiCompleta() {
 function controlloCarosello() {
     var carouselTurno = document.getElementById('carouselTurno');
     carouselTurno.addEventListener('slide.bs.carousel', function (val) {
+        console.log(val);
         // Con il carousel si sposta anche il tunro lo cambia (se il carousel va a destra aggiungi 1 | se va a sinistra sottrai uno )
         if (val.direction == 'right') { // Se va a destra
             // e se è minore di 95 (nTurni), altrimenti ricomincia da 0
@@ -363,4 +381,32 @@ function titleCase(str) {
     }
     // Directly return the joined string
     return splitStr.join(' '); 
+}
+
+// Calcola Pasqua (e Pasquetta)
+function getEaster(year) {
+	var f = Math.floor,
+		// Golden Number - 1
+		G = year % 19,
+		C = f(year / 100),
+		// related to Epact
+		H = (C - f(C / 4) - f((8 * C + 13)/25) + 19 * G + 15) % 30,
+		// number of days from 21 March to the Paschal full moon
+		I = H - f(H/28) * (1 - f(29/(H + 1)) * f((21-G)/11)),
+		// weekday for the Paschal full moon
+		J = (year + f(year / 4) + I + 2 - C + f(C / 4)) % 7,
+		// number of days from 21 March to the Sunday on or before the Paschal full moon
+		L = I - J,
+		month = 3 + f((L + 40)/44),
+		day = L + 28 - 31 * f(month / 4);
+
+	pasqua = ( ("0" + day).slice(-2) + "/" + ("0" + month).slice(-2) );
+
+    if (day == 31 && month == 3) {
+        pasquetta = '01/04';
+    }
+    else {
+        pasquetta = ( ("0" + (day + 1)).slice(-2) + "/" + ("0" + month).slice(-2) );
+    }
+
 }

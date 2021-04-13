@@ -9,12 +9,25 @@ const primoGiorno = "04/01/2021"; // Formato -> mm/gg/aaaa (Tanto si dovrà pren
 var turno = []; // Dove sono di turno oggi
 var dataOggi = new Date();
 var ricercaFatta = '';
+var feste = [
+    "01/01", // Capodanno
+    "06/01", // Befana
+    // Pasqua e Pasquetta sono calcolate e poi aggiunte qui
+    "25/04", // Liberazione
+    "01/05", // Festa dei lavoratori
+    "02/06", // Festa della repubblica
+    "29/06", // San Pietro e Paolo (solo a Roma)
+    "15/08", // Ferragosto
+    "01/11", // Tutti i santi
+    "08/12", // Immacolata 
+    "25/12", // Natale
+    "26/12"  // Santo Stefano
+];
+var pasqua, pasquetta;
+
 
 // Manda in esecuzione il tutto :)
 main();
-
-
-
 
 // Apri il campo di ricerca
 function apriRicerca() {
@@ -55,8 +68,8 @@ function apriRicerca() {
 
 // Chiudi (Pulsante)
 function chiudiTutto() {
-    $('#turno').slideDown();
     $('.nav').slideDown('fast');
+    $('#turno').slideDown();
     $('#chiudiRicerca').hide();
     $('#listaSoste').slideUp('slow');
     $('footer').show();
