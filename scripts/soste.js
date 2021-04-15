@@ -17,7 +17,7 @@ var soste = [
     },
     {
         id: "5",
-        nome: "SCARPANTO  4"
+        nome: "Conti 4"
     },
     {
         id: "6",
@@ -81,7 +81,7 @@ var soste = [
     },
     {
         id: "21",
-        nome: "SAGRATO"
+        nome: "Rov. D'istria 2"
     },
     {
         id: "22",
@@ -113,7 +113,7 @@ var soste = [
     },
     {
         id: "29",
-        nome: "QUADRARO  3°"
+        nome: "QUADRARO  7°"
     },
     {
         id: "30",
@@ -145,7 +145,7 @@ var soste = [
     },
     {
         id: "37",
-        nome: "GORGONA 3"
+        nome: "Conti 3"
     },
     {
         id: "38",
@@ -165,7 +165,7 @@ var soste = [
     },
     {
         id: "42",
-        nome: "QUADRARO 2°"
+        nome: "QUADRARO 9°"
     },
     {
         id: "43",
@@ -193,7 +193,7 @@ var soste = [
     },
     {
         id: "49",
-        nome: "QUADRARO  VECCHIA "
+        nome: "QUADRARO  13"
     },
     {
         id: "50",
@@ -201,7 +201,7 @@ var soste = [
     },
     {
         id: "51",
-        nome: "CHERSO"
+        nome: "Rov. D'istria 7"
     },
     {
         id: "52",
@@ -273,7 +273,7 @@ var soste = [
     },
     {
         id: "69",
-        nome: "VALMELAINA  NUOVA"
+        nome: "Conti recinzione"
     },
     {
         id: "70",
@@ -317,7 +317,7 @@ var soste = [
     },
     {
         id: "80",
-        nome: "QUADRARO  4°"
+        nome: "QUADRARO  18 nuova"
     },
     {
         id: "81",
@@ -349,7 +349,7 @@ var soste = [
     },
     {
         id: "88",
-        nome: "TRIONFALE  57"
+        nome: "Andra Doria 57"
     },
     {
         id: "89",
