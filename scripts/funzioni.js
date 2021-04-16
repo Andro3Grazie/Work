@@ -200,6 +200,8 @@ function dimmiChi(id, nome) { // Fanno riferimento alle informazioni della sosta
     idNominativo = idTurno - (turno["id"] - id);
     if (idNominativo > nNominativi)
         idNominativo -= nNominativi;
+    if (idNominativo < 1)
+        idNominativo += nNominativi;
 
     $("#inputSoste").prop("value", nome).prop("disabled", true);
     $("#risultato").html(`
@@ -217,6 +219,8 @@ function dimmiDove(id, nome) {
     var idSoste = 0;
 
     idSoste = turno["id"] - ( idTurno - id );
+    if (idSoste > nTurni)
+        idSoste -= nTurni;
     if ( idSoste < 1 )
         idSoste += nTurni;
 
