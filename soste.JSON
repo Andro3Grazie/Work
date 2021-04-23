@@ -1,0 +1,382 @@
+[
+  {
+      "id": 1,
+      "name": "GIMMA  2"
+  },
+  {
+      "id": 2,
+      "name": "VIALE PASTEUR  61/63"
+  },
+  {
+      "id": 3,
+      "name": "MONTAGNOLA  8"
+  },
+  {
+      "id": 4,
+      "name": "TORREVECCHIA"
+  },
+  {
+      "id": 5,
+      "name": "Conti 4"
+  },
+  {
+      "id": 6,
+      "name": "BARLETTA"
+  },
+  {
+      "id": 7,
+      "name": "GENTILE DA MOGLIANO"
+  },
+  {
+      "id": 8,
+      "name": "S.G.DI D. PIAZZISTA"
+  },
+  {
+      "id": 9,
+      "name": "SATRICO"
+  },
+  {
+      "id": 10,
+      "name": "MARCONI  2"
+  },
+  {
+      "id": 11,
+      "name": "COLLI  ALBANI  METRO"
+  },
+  {
+      "id": 12,
+      "name": "PIAZZALE  DEGLI  EROI"
+  },
+  {
+      "id": 13,
+      "name": "NOBILIORE"
+  },
+  {
+      "id": 14,
+      "name": "GIURECONSULTI"
+  },
+  {
+      "id": 15,
+      "name": "MONTAGNOLA  13"
+  },
+  {
+      "id": 16,
+      "name": "SPARTACO "
+  },
+  {
+      "id": 17,
+      "name": "GERMANICO"
+  },
+  {
+      "id": 18,
+      "name": "PRIMAVERE"
+  },
+  {
+      "id": 19,
+      "name": "CARDANO"
+  },
+  {
+      "id": 20,
+      "name": "LABIENO  5"
+  },
+  {
+      "id": 21,
+      "name": "Rov. D'istria 2"
+  },
+  {
+      "id": 22,
+      "name": "TITO  SPERI  VECCHIA"
+  },
+  {
+      "id": 23,
+      "name": "MAMMOLO"
+  },
+  {
+      "id": 24,
+      "name": "ORVIETO"
+  },
+  {
+      "id": 25,
+      "name": "PZZA.  CINA  POST. 5"
+  },
+  {
+      "id": 26,
+      "name": "VIA  SANSOTTA  POST. 1"
+  },
+  {
+      "id": 27,
+      "name": "VIA  IGEA"
+  },
+  {
+      "id": 28,
+      "name": "GIMMA 1"
+  },
+  {
+      "id": 29,
+      "name": "QUADRARO  7°"
+  },
+  {
+      "id": 30,
+      "name": "BALBO"
+  },
+  {
+      "id": 31,
+      "name": "ENEA"
+  },
+  {
+      "id": 32,
+      "name": "SABOTINO"
+  },
+  {
+      "id": 33,
+      "name": "SBIRRO STALLO 15"
+  },
+  {
+      "id": 34,
+      "name": "OSCI"
+  },
+  {
+      "id": 35,
+      "name": "SCIPIONI"
+  },
+  {
+      "id": 36,
+      "name": "PONTE  MILVIO "
+  },
+  {
+      "id": 37,
+      "name": "Conti 3"
+  },
+  {
+      "id": 38,
+      "name": "CHIANA"
+  },
+  {
+      "id": 39,
+      "name": "TRASTEVERE SURROPAGO"
+  },
+  {
+      "id": 40,
+      "name": "PAVIA"
+  },
+  {
+      "id": 41,
+      "name": "METAURO "
+  },
+  {
+      "id": 42,
+      "name": "QUADRARO 9°"
+  },
+  {
+      "id": 43,
+      "name": "PAOLO  EMILIO"
+  },
+  {
+      "id": 44,
+      "name": "SBIRRO  STALLO  12"
+  },
+  {
+      "id": 45,
+      "name": "SOMALIA  FARMACIA"
+  },
+  {
+      "id": 46,
+      "name": "MONTEBELLO"
+  },
+  {
+      "id": 47,
+      "name": "SACCO  E  VANZETTI"
+  },
+  {
+      "id": 48,
+      "name": "PIRAMIDE  VECCHIA"
+  },
+  {
+      "id": 49,
+      "name": "QUADRARO  13"
+  },
+  {
+      "id": 50,
+      "name": "CASILINA"
+  },
+  {
+      "id": 51,
+      "name": "Rov. D'istria 7"
+  },
+  {
+      "id": 52,
+      "name": "TRASTEVERE  FRONTONI"
+  },
+  {
+      "id": 53,
+      "name": "PIRAMIDE NUOVA"
+  },
+  {
+      "id": 54,
+      "name": "FILIPPO  MEDA  STALLO  9"
+  },
+  {
+      "id": 55,
+      "name": "FERRARI"
+  },
+  {
+      "id": 56,
+      "name": "RAPPINI"
+  },
+  {
+      "id": 57,
+      "name": "RIALTO"
+  },
+  {
+      "id": 58,
+      "name": "FRANKLIN"
+  },
+  {
+      "id": 59,
+      "name": "ANAGNINA"
+  },
+  {
+      "id": 60,
+      "name": "S. MARIA  MAGGIORE"
+  },
+  {
+      "id": 61,
+      "name": "PINO  1"
+  },
+  {
+      "id": 62,
+      "name": "VIA  NAPOLI  CIV. 2"
+  },
+  {
+      "id": 63,
+      "name": "SAN SILVERIO"
+  },
+  {
+      "id": 64,
+      "name": "OVIDIO"
+  },
+  {
+      "id": 65,
+      "name": "MONTAGNOLA  2"
+  },
+  {
+      "id": 66,
+      "name": "TORPIGNATTARA"
+  },
+  {
+      "id": 67,
+      "name": "CASALBERTONE"
+  },
+  {
+      "id": 68,
+      "name": "BOCCEA  C.E.M."
+  },
+  {
+      "id": 69,
+      "name": "Conti recinzione"
+  },
+  {
+      "id": 70,
+      "name": "PRIMATI  SPORTIVI  P. 6"
+  },
+  {
+      "id": 71,
+      "name": "IONIO"
+  },
+  {
+      "id": 72,
+      "name": "CAPO  PASSERO"
+  },
+  {
+      "id": 73,
+      "name": "VIA  NAPOLI  ST.  4"
+  },
+  {
+      "id": 74,
+      "name": "VALDOSSOLA"
+  },
+  {
+      "id": 75,
+      "name": "TITO  SPERI  CESSI"
+  },
+  {
+      "id": 76,
+      "name": "MAGLIANA"
+  },
+  {
+      "id": 77,
+      "name": "SBIRRO  STALLO 10"
+  },
+  {
+      "id": 78,
+      "name": "SOMALIA  BANCA"
+  },
+  {
+      "id": 79,
+      "name": "SILLA"
+  },
+  {
+      "id": 80,
+      "name": "QUADRARO  18 nuova"
+  },
+  {
+      "id": 81,
+      "name": "MONTAGNOLA  5"
+  },
+  {
+      "id": 82,
+      "name": "OSTIENSE  313 "
+  },
+  {
+      "id": 83,
+      "name": "CIPRO"
+  },
+  {
+      "id": 84,
+      "name": "PIGNETO"
+  },
+  {
+      "id": 85,
+      "name": "M.TO  SPINACETO  P. 8"
+  },
+  {
+      "id": 86,
+      "name": "GALVANI "
+  },
+  {
+      "id": 87,
+      "name": "PINO  2"
+  },
+  {
+      "id": 88,
+      "name": "Andra Doria 57"
+  },
+  {
+      "id": 89,
+      "name": "MARCONI  11-12"
+  },
+  {
+      "id": 90,
+      "name": "SBIRRO  STALLO  7"
+  },
+  {
+      "id": 91,
+      "name": "LABIENO  12"
+  },
+  {
+      "id": 92,
+      "name": "NICOLINI"
+  },
+  {
+      "id": 93,
+      "name": "PRIMATI  SPORTIVI  P. 9"
+  },
+  {
+      "id": 94,
+      "name": "URBANO  2°"
+  },
+  {
+      "id": 95,
+      "name": "VIA  NAPOLI  ST.  5"
+  }
+]
